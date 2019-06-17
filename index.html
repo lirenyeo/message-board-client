@@ -61,7 +61,9 @@
       </form>
     </div>
 
-    <ul id="board"></ul>
+    <ul id="board">
+      <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+    </ul>
   </body>
   <script>
     const LIMIT = 280
@@ -83,6 +85,7 @@
       method: 'get',
       url: 'https://next-message-board.herokuapp.com/messages',
       success: function(messages) {
+        $('#board').html('')
         messages.forEach(msg => {
           $('#board').append(createMessage(msg))
         })
